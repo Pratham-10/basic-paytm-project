@@ -1,10 +1,11 @@
 const express = require("express");
 const mongoose = require('mongoose');
-const dotenv = require('dotenv').config({path:'./.env'})
-const bodyParser = require('body-parser'); 
+const dotenv = require('dotenv').config({path:'./.env'}) 
+const cors = require('cors')
 
 const app = express()
-app.use(bodyParser.json()) 
+app.use(cors())
+app.use(express.json()) 
 const router = require('./routes/index');
 app.use('/api/v1',router)
 
